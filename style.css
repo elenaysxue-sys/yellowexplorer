@@ -1,121 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #fff8e7;
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #fff8e7, #fff1bd);
   color: #333333;
 }
 
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  color: #f29f05;
-}
-
-.hero p {
-  font-size: 22px;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 24px;
-  background-color: #ffd54f;
-  color: #333333;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-}
-/* =========================
-   YellowExplorer Style Sheet
-   Version 0.2
-========================= */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFF8E7;
-    color: #333333;
-}
-
-/* ---------- Navigation ---------- */
+/* Navigation */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
-    padding: 25px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    background-color: rgba(255,255,255,0.35);
+  padding: 22px 70px;
+  background-color: rgba(255, 248, 231, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #F29F05;
+  font-size: 24px;
+  font-weight: 800;
+  color: #f29f05;
 }
 
 .nav-links {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 28px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: bold;
-
-    transition: color 0.3s;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #F29F05;
+  color: #f29f05;
 }
 
-/* ---------- Hero ---------- */
+/* Hero */
 
 .hero {
-    text-align: center;
-    padding: 120px 20px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+
+  padding: 80px 70px;
+}
+
+.hero-content {
+  max-width: 650px;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.eyebrow {
+  color: #f29f05;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: 64px;
-    color: #F29F05;
-    margin-bottom: 20px;
+  font-size: 64px;
+  line-height: 1.1;
+  color: #f29f05;
+  margin: 15px 0 20px;
 }
 
-.hero p {
-    font-size: 28px;
-    margin-bottom: 40px;
+.intro {
+  font-size: 22px;
+  line-height: 1.7;
+  max-width: 600px;
 }
 
-/* ---------- Button ---------- */
+/* Button */
 
 .button {
-    display: inline-block;
+  display: inline-block;
+  margin-top: 22px;
 
-    background-color: #FFD54F;
+  background-color: #ffd54f;
+  color: #333333;
+  text-decoration: none;
 
-    color: #333333;
+  padding: 16px 32px;
+  border-radius: 40px;
 
-    text-decoration: none;
-
-    padding: 16px 32px;
-
-    border-radius: 40px;
-
-    font-weight: bold;
-
-    transition: all 0.3s ease;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-    background-color: #F4C542;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background-color: #f4c542;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* Hero Card */
+
+.hero-card {
+  width: 330px;
+  padding: 35px;
+  text-align: center;
+
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 32px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.compass {
+  font-size: 80px;
+}
+
+.hero-card h2 {
+  color: #f29f05;
+  margin-bottom: 10px;
+}
+
+.hero-card p {
+  font-size: 18px;
+}
+
+/* Animations */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 18px 25px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 25px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .intro {
+    font-size: 18px;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: 330px;
+  }
 }
